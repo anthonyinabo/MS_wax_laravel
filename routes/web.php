@@ -5,8 +5,27 @@ Route::get('/', function () {
 });
 
 Route::get('/robes', function () {
-	$products = App\Dress::all();
+	$products = App\Dress::all()->whereIn('id', range(1, 7));
 	return view('dresses', compact('products'));
+});
+
+Route::get('/vestes', function () {
+	$products = App\Dress::all()->whereIn('id', range(8, 9));
+	return view('dresses', compact('products'));
+});
+
+Route::get('/jupes', function () {
+	$products = App\Dress::all()->whereIn('id', range(10, 11));
+	return view('dresses', compact('products'));
+});
+
+Route::get('/other', function () {
+	$products = App\Dress::all()->whereIn('id', 12);
+	return view('dresses', compact('products'));
+});
+
+Route::get('/about', function () {
+	return view('about');
 });
 
 Route::get('/cart', function () {

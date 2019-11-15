@@ -26,7 +26,7 @@ class Products_Quantity_Controller extends Controller
               
                         unset($cart[$id]);
 
-                session()->put('cart', $cart);
+                           session()->put('cart', $cart);
            }
 
               DB::table('dresses')

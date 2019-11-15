@@ -6,10 +6,10 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">My cart</th>
-      <th scope="col">product</th>
-      <th scope="col">quantity</th>
-      <th scope="col">price</th>
+      <th scope="col">Mon panier</th>
+      <th scope="col">Produit</th>
+      <th scope="col">quantité</th>
+      <th scope="col">prix</th>
     </tr>
   </thead>
 
@@ -35,9 +35,9 @@
 </form>
 
 @if($details['size'])
-<button class="btn btn-outline-primary mt-5" data-toggle="modal" data-target="#exampleModal">Buy now</button>
+<button class="btn btn-outline-primary mt-5" data-toggle="modal" data-target="#exampleModal">Acheter</button>
 @else
-<button class="btn btn-outline-primary mt-5" disabled="true" title="Selectionnez la taille">Buy now</button>
+<button class="btn btn-outline-primary mt-5" disabled="true" title="Selectionnez la taille">Acheter</button>
 @endif
 <!-- Modal -->
 
@@ -64,8 +64,8 @@
   </div>
 </div>
 
- <a href="{{ route('remove.product', ['id' => $details['id']] ) }}" class="btn btn-danger mt-5 ">delete</a>
-            </td>
+ <a href="{{ route('remove.product', ['id' => $details['id']] ) }}" class="btn btn-danger mt-5 ">supprimer</a>
+</td>
 
 <td>
   <form method="POST" action="/quantity/{{$details['id']}}">
@@ -83,22 +83,21 @@
 </div>
 </form>
 </td> 
-            <td><strong>{{$details['price']}}</strong></td> 
+<td><strong>{{$details['price']}}</strong></td> 
 @endif
-        </tr>
+</tr>
   @endforeach
-      <td><strong>Total:</strong> {{$total}} $</td>
-  </tbody>
+<td><strong>Total:</strong> {{$total}} $</td>
+</tbody>
 @endif
 
-@if(!session('cart'))
-    <td>
-      <div class="mx-auto mt-5 pt-5" style="width: 500px; font-size: 20px;">
-      <p class="text-muted">Votre panier est vide pour le moment...</p>
-      <a href="/" class="btn btn-warning"><i class='fas fa-angle-left'></i> faire mes emplettes</a>
-      </div>
-    </td>
-@endif
 </table>
+@if(!session('cart'))
+    
+      <div class="mx-auto mt-5 pt-5" style="width: 500px; font-size: 20px;">
+        <p class="text-muted">Votre panier est vide pour le moment...</p>
+        <a href="/" class="btn btn-warning"><i class='fas fa-angle-left'></i> faire mes emplettes</a>
+      </div>
+@endif
 </div>
 @endsection

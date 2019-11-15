@@ -44,7 +44,7 @@ public function add_product($id)
             ];
 
             session()->put('cart', $cart);
-
+            
                 DB::table('dresses')
                 ->where('id', $products->id)
                 ->update(['stock' => $products['stock'] -=1 ]);
